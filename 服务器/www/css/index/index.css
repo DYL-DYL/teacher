@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.align {
+  height: 100vh;
+  background: url(../../pic/align.png) no-repeat;
+  background-size: 100% 100%;
+  box-shadow: 0 0 1000px 120px rgba(255, 255, 255, 0.8) inset;
+  overflow: hidden;
+}
+.align > header {
+  text-align: center;
+  letter-spacing: 3px;
+  flood-color: #303133;
+  font-size: 30px;
+  margin-top: 15vh;
+}
+.align > main {
+  width: 400px;
+  background-color: rgba(255, 255, 255, 0.35);
+  margin: 5vh auto;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+.align > main > form > p {
+  padding: 10px 3px;
+  border-bottom: 1px solid black;
+  margin-bottom: 20px;
+}
+.align > main > form .hint {
+  height: 30px;
+  line-height: 30px;
+  color: #F56C6C;
+  font-size: 14px;
+  padding-left: 10px;
+}
+.align > main > form button {
+  width: 100%;
+  margin-bottom: 30px;
+}
+.align > main > form .radioBox {
+  padding-left: 30px;
+  margin: 20px 0;
+}
+.align > main > form .toRegister {
+  text-align: right;
+  padding-right: 20px;
+  font-size: 14px;
+}
+.align > main > form .toRegister > a {
+  text-decoration: none;
+  color: black;
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/index/index.css">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+</head>
+
+<body>
+
+    <div id="app">
+        <div class="align">
+            <header>物联网学习管理系统</header>
+            <main>
+              <form action="">
+                <p>注册</p>
+                <el-input
+                  placeholder="请输入用户名"
+                  prefix-icon="el-icon-user-solid"
+                  v-model="input1"
+                  clearable
+                  name="username"
+                >
+                </el-input>
+                <div class="hint">{{ hint1 }}</div>
+                <el-input
+                  placeholder="请输入密码"
+                  prefix-icon="el-icon-lock"
+                  v-model="input2"
+                  show-password
+                  clearable
+                  name="psw"
+                >
+                </el-input>
+                
+                <div class="hint">{{ hint2 }}</div>
+                <el-input
+                  placeholder="请确认密码"
+                  prefix-icon="el-icon-lock"
+                  v-model="input3"
+                  show-password
+                  clearable
+                  name="psw"
+                >
+                </el-input>
+                <div class="radioBox">
+                    <el-radio v-model="radio" label="student" name='who'>学生</el-radio>
+                    <el-radio v-model="radio" label="teacher" name='who'>老师</el-radio>
+                    <el-radio v-model="radio" label="admin" name='who'>管理员</el-radio>
+                </div>
+                <el-button type="primary" plain @click="toSubmit">注册</el-button>
+              </form>
+            </main>
+        </div>
+    </div>
+    <script src="../js/jquery-3.1.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script>
+        var app = new Vue({
+
+            el: '#app',
+            data() {
+                return {
+                    input1: "",
+                    input2: "",
+                    input3:'',
+                    ruleForm: "",
+                    hint1: "",
+                    hint2: "",
+                    radio: 'student'
+                };
+            },
+            created() {
+                document.title = '管理员登录'
+            },
+            methods: {
+                toSubmit(e) {
+                    this.hint1 = "";
+                    this.hint2 = "";
+                    $.post('http://localhost:3000/isLogin',{
+                        username:this.input1,
+                        psw:this.input2,
+                        who:this.radio
+                    },(data)=>{
+                        console.log(data);
+                    })
+                },
+            },
+
+
+        })
+    </script>
+</body>
+
+</html>
